@@ -1,7 +1,7 @@
 import {
-  REQ_QURAN_LIST,
-  REQ_QURAN_LIST_SUCCESS,
-  REQ_QURAN_LIST_FAILURE,
+  REQ_WEATHER_DATA,
+  REQ_WEATHER_DATA_SUCCESS,
+  REQ_WEATHER_DATA_FAILURE,
 } from '../../Actions/Types';
 
 const initialState = {
@@ -12,28 +12,28 @@ const initialState = {
   refreshing: false,
 };
 
-const QuranList = (state = initialState, action) => {
+const WeatherData = (state = initialState, action) => {
   switch (action.type) {
-    case REQ_QURAN_LIST:
+    case REQ_WEATHER_DATA:
       return {
         ...state,
-        actionStatus: REQ_QURAN_LIST,
+        actionStatus: REQ_WEATHER_DATA,
         error: '',
         loading: true,
         refreshing: true,
       };
-    case REQ_QURAN_LIST_SUCCESS:
+    case REQ_WEATHER_DATA_SUCCESS:
       return {
         ...state,
-        actionStatus: REQ_QURAN_LIST_SUCCESS,
+        actionStatus: REQ_WEATHER_DATA_SUCCESS,
         data: action.payload,
         loading: false,
         refreshing: false,
       };
-    case REQ_QURAN_LIST_FAILURE:
+    case REQ_WEATHER_DATA_FAILURE:
       return {
         ...state,
-        actionStatus: REQ_QURAN_LIST_FAILURE,
+        actionStatus: REQ_WEATHER_DATA_FAILURE,
         error: action.error,
         loading: false,
         refreshing: false,
@@ -43,4 +43,4 @@ const QuranList = (state = initialState, action) => {
   }
 };
 
-export { QuranList };
+export { WeatherData };

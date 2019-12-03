@@ -1,0 +1,3 @@
+const weatherData = 'https://api.weatherbit.io/v2.0/current?lat=-6.5195652033091145&lon=106.82509679062528&key=fd70d0e070304e3d80725b55c1c35c8f&lang=id';
+
+export { weatherData };

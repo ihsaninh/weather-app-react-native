@@ -2,8 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import reduxLogger from 'redux-logger';
 
-import { QuranList } from './Reducers/QuranList/QuranListReducer';
-import { QuranDetail } from './Reducers/QuranDetail/QuranDetailReducer';
+import { WeatherData } from './Reducers/WeatherData/WeatherDataReducer';
 
 const middleware = [thunk];
 
@@ -12,8 +11,7 @@ if (__DEV__) {
 }
 
 const appReducer = combineReducers({
-  quranList: QuranList,
-  qurandetail: QuranDetail,
+  weatherData: WeatherData,
 });
 
 const rootReducer = (state, action) => {
