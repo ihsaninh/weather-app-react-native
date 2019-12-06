@@ -11,12 +11,12 @@ import { Constants } from '../../../Utils/Constants';
 const getWeatherData = () => async dispatch => {
   dispatch({ type: REQ_WEATHER_DATA });
   try {
-    const response = await axios.get(weatherData);
-    console.log('hasil res', response);
+    const { latitude, longitude } = await findCoordinates();
+    const response = await axios.get(weatherData('64.1335484', '-21.9224815'));
     if (response?.status === Constants.RESPONSE_CODE.SUCCESS) {
       dispatch({
         type: REQ_WEATHER_DATA_SUCCESS,
-        payload: response?.data?.data,
+        payload: response?.data?.data[0],
       });
     } else {
       dispatch({
@@ -25,7 +25,6 @@ const getWeatherData = () => async dispatch => {
       });
     }
   } catch (error) {
-    console.log(error);
     dispatch({
       type: REQ_WEATHER_DATA_FAILURE,
       error: 'Request Cuaca gagal',
