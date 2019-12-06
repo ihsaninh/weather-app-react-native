@@ -12,7 +12,7 @@ const getWeatherData = () => async dispatch => {
   dispatch({ type: REQ_WEATHER_DATA });
   try {
     const { latitude, longitude } = await findCoordinates();
-    const response = await axios.get(weatherData('64.1335484', '-21.9224815'));
+    const response = await axios.get(weatherData(latitude, longitude));
     if (response?.status === Constants.RESPONSE_CODE.SUCCESS) {
       dispatch({
         type: REQ_WEATHER_DATA_SUCCESS,
